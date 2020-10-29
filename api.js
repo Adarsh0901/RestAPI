@@ -103,6 +103,46 @@ app.post('/addrestaurent',(req,res) => {
     })
 })
 
+
+//Update Restaurent
+app.put('/updateRest',(req,res) => {
+    db.collection('restaurent').update({_id:req.body._id},
+        {
+            $set:{
+                rest_name:req.body.rest_name,
+                city_name:req.body.city_name,
+                city:req.body.city,
+                area:req.body.area,
+                locality:req.body.locality,
+                cost:req.body.cost,
+                address:req.body.address,
+                type:[
+                    {
+                        mealtype:req.body.type[0].mealtype,
+                        name:req.body.type[0].name
+                    },
+                    {
+                        mealtype:req.body.type[1].mealtype,
+                        name:req.body.type[1].name
+                     }
+                ],
+                cuisine:[
+                    {
+                        cuisine:req.body.cuisine[0].cuisine,
+                        name:req.body.cuisine[0].name
+                    },
+                    {
+                        cuisine:req.body.cuisine[1].cuisine,
+                        name:req.body.cuisine[1].name
+                    }
+                ]
+            }
+        },(err,result) => {
+            if(err) throw err;
+            res.send('data updated')
+        })
+})
+
 //order
 app.get('/orders',(req,res) => {
     db.collection('orders').find({}).toArray((err,result) => {
