@@ -94,6 +94,15 @@ app.post('/placeorder',(req,res) => {
     })
 })
 
+//Add Restaurent
+app.post('/addrestaurent',(req,res) => {
+    console.log(req.body);
+    db.collection('restaurent').insert(req.body,(err,result) => {
+        if(err) throw err;
+        res.send('posted')
+    })
+})
+
 //order
 app.get('/orders',(req,res) => {
     db.collection('orders').find({}).toArray((err,result) => {
