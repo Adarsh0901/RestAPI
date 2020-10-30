@@ -80,9 +80,6 @@ app.get('/restaurantList/:mealtype',(req,res) => {
         condition={"type.mealtype":req.params.mealtype}
         sort={cost:Number(req.query.sort)}
     }
-    else{
-        condition= {"type.mealtype":req.params.mealtype}
-    }
     db.collection('restaurent').find(condition).sort(sort).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
