@@ -117,6 +117,7 @@ app.put('/updateRest',(req,res) => {
                 locality:req.body.locality,
                 cost:req.body.cost,
                 address:req.body.address,
+                contact_number:req.body.contact_number,
                 type:[
                     {
                         mealtype:req.body.type[0].mealtype,
@@ -127,7 +128,7 @@ app.put('/updateRest',(req,res) => {
                         name:req.body.type[1].name
                      }
                 ],
-                cuisine:[
+                Cuisine:[
                     {
                         cuisine:req.body.cuisine[0].cuisine,
                         name:req.body.cuisine[0].name
