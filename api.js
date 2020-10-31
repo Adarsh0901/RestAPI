@@ -130,11 +130,11 @@ app.put('/updateRest',(req,res) => {
                 ],
                 Cuisine:[
                     {
-                        cuisine:req.body.cuisine[0].cuisine,
+                        cuisine:req.body.Cuisine[0].cuisine,
                         name:req.body.cuisine[0].name
                     },
                     {
-                        cuisine:req.body.cuisine[1].cuisine,
+                        cuisine:req.body.Cuisine[1].cuisine,
                         name:req.body.cuisine[1].name
                     }
                 ]
