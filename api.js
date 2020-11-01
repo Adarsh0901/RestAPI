@@ -106,7 +106,7 @@ app.post('/addrestaurent',(req,res) => {
 
 //Delete Restaurant
 app.delete('/deleterest',(req,res) => {
-    db.collection('restaurent').remove({_id:req.body.id},(err,result) => {
+    db.collection('restaurent').remove({_id:req.body._id},(err,result) => {
         if(err) throw err;
         res.send('data deleted')
     })
@@ -162,7 +162,7 @@ app.get('/orders',(req,res) => {
 
 //Delete orders
 app.delete('/deleteorders',(req,res) => {
-    db.collection('orders').remove({_id:req.body.id},(err,result) => {
+    db.collection('orders').remove({_id:req.body._id},(err,result) => {
         if(err) throw err;
         res.send('data deleted')
     })
