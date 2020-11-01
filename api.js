@@ -104,6 +104,13 @@ app.post('/addrestaurent',(req,res) => {
     })
 })
 
+//Delete Restaurant
+app.delete('/deleterest',(req,res) => {
+    db.collection('restaurent').remove({_id:req.body.id},(err,result) => {
+        if(err) throw err;
+        res.send('data deleted')
+    })
+})
 
 //Update Restaurent
 app.put('/updateRest',(req,res) => {
@@ -153,6 +160,13 @@ app.get('/orders',(req,res) => {
     })
 })
 
+//Delete orders
+app.delete('/deleteorders',(req,res) => {
+    db.collection('orders').remove({_id:req.body.id},(err,result) => {
+        if(err) throw err;
+        res.send('data deleted')
+    })
+})
 
 
 //Connecting with mongodb client
